@@ -6,6 +6,8 @@ repositories {
 }
 
 apply plugin: 'java'
+apply plugin: 'checkstyle'
+
 
 sourceCompatibility = 1.8
 
@@ -25,4 +27,11 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.projectlombok:lombok:1.16.10'
+}
+
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
 }
